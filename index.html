@@ -16,6 +16,7 @@
       crossorigin="anonymous"
     ></script>
     <script src="index.js" type="module"></script>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
@@ -53,26 +54,20 @@
                 Dropdown
               </a>
               <ul class="dropdown-menu">
-                <input
-                  class="search-name"
-                  type="search"
-                  placeholder="Search by name"
-                />
-                <input
-                  class="search-username"
-                  type="search"
-                  placeholder="Search by username"
-                />
-                <input
-                  class="search-email"
-                  type="search"
-                  placeholder="Search by email"
-                />
+                <li><a id="name" class="dropdown-item" href="#">Name</a></li>
+                <li>
+                  <a id="username" class="dropdown-item" href="#">Username</a>
+                </li>
+                <li><a id="email" class="dropdown-item" href="#">Email</a></li>
+                <li>
+                  <a id="show-all" class="dropdown-item" href="#">Show All</a>
+                </li>
               </ul>
             </li>
           </ul>
           <form class="d-flex" role="search">
             <input
+              id="search-bar"
               class="form-control me-2"
               type="search"
               placeholder="Search"
@@ -85,6 +80,18 @@
         </div>
       </div>
     </nav>
-    <ul class="ul"></ul>
+    <div class="m-5">
+      <table class="table table-striped w-100">
+        <thead>
+          <tr id="display">
+            <th scope="col"></th>
+            <th scope="col">Name</th>
+            <th scope="col">Username</th>
+            <th scope="col">E-mail</th>
+          </tr>
+        </thead>
+        <tbody class="showAll" id="table-body"></tbody>
+      </table>
+    </div>
   </body>
 </html>
