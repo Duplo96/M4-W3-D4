@@ -59,7 +59,11 @@ const search = (e, table, utenti, display) => {
   });
 
   if (!foundResults) {
-    table.innerHTML = `<tr><td colspan="4">No result found</td></tr>`;
+    table.innerHTML = `
+    <th scope="col"></th>
+      <th scope="col"></th>
+      <th scope="col">No result found</th>
+      <th scope="col"></th>`;
   }
 };
 
