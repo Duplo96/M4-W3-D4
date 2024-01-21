@@ -1,7 +1,9 @@
 const search = (e, table, utenti, display) => {
   let counter = 1;
-  const filterText = e.target.value.toLowerCase();
+  let filterText = e.target.value.toLowerCase();
+  let foundResults = false; // Aggiunto per tenere traccia se sono stati trovati risultati
   table.innerHTML = "";
+
   utenti.forEach((utente) => {
     if (
       table.classList.contains(
@@ -16,9 +18,10 @@ const search = (e, table, utenti, display) => {
         <td>${utente.name}</td>
         <td>${utente.username}</td>
         <td>${utente.email}</td>
-      </tr>
-  `;
+      </tr>`;
+      foundResults = true;
     }
+
     if (
       display.innerText.includes("Name") &&
       utente.name.toLowerCase().includes(filterText)
@@ -27,10 +30,9 @@ const search = (e, table, utenti, display) => {
         <td>${utente.name}</td>
         <td>${utente.username}</td>
         <td>${utente.email}</td>
-      </tr>
-  `;
-
+      </tr>`;
       counter++;
+      foundResults = true;
     } else if (
       display.innerText.includes("Username") &&
       utente.username.toLowerCase().includes(filterText)
@@ -39,9 +41,9 @@ const search = (e, table, utenti, display) => {
         <td>${utente.name}</td>
         <td>${utente.username}</td>
         <td>${utente.email}</td>
-      </tr>
-  `;
+      </tr>`;
       counter++;
+      foundResults = true;
     } else if (
       display.innerText.includes("E-mail") &&
       utente.email.toLowerCase().includes(filterText)
@@ -50,10 +52,15 @@ const search = (e, table, utenti, display) => {
         <td>${utente.name}</td>
         <td>${utente.username}</td>
         <td>${utente.email}</td>
-      </tr>
-  `;
+      </tr>`;
       counter++;
+      foundResults = true;
     }
   });
+
+  if (!foundResults) {
+    table.innerHTML = `<tr><td colspan="4">No result found</td></tr>`;
+  }
 };
+
 export { search };

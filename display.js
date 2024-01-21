@@ -2,6 +2,7 @@ const showName = document.querySelector("#name");
 const showEmail = document.querySelector("#email");
 const showUsername = document.querySelector("#username");
 const ShowAll = document.querySelector("#show-all");
+const searchBar = document.querySelector("#search-bar");
 const displayUsers = (utenti, table) => {
   utenti.forEach(
     (utente) =>
@@ -16,6 +17,8 @@ const displayUsers = (utenti, table) => {
 };
 const displayNames = (utenti, table) => {
   showName.addEventListener("click", () => {
+    searchBar.placeholder = "Search for Names";
+    searchBar.value = "";
     let counter = 1;
     table.innerHTML = "";
     table.classList.remove("showAll");
@@ -29,6 +32,8 @@ const displayNames = (utenti, table) => {
 };
 const displayEmail = (utenti, table) => {
   showEmail.addEventListener("click", () => {
+    searchBar.placeholder = "Search for E-mail";
+    searchBar.value = "";
     let counter = 1;
     table.innerHTML = "";
     table.classList.remove("showAll");
@@ -42,6 +47,8 @@ const displayEmail = (utenti, table) => {
 };
 const displayUsername = (utenti, table) => {
   showUsername.addEventListener("click", () => {
+    searchBar.placeholder = "Search for Username";
+    searchBar.value = "";
     let counter = 1;
     table.innerHTML = "";
     table.classList.remove("showAll");
@@ -55,6 +62,7 @@ const displayUsername = (utenti, table) => {
 };
 const displayAll = (utenti, table) => {
   ShowAll.addEventListener("click", () => {
+    searchBar.value = "";
     table.classList.add("showAll");
     table.innerHTML = "";
     display.innerHTML = `<th scope="col"></th>

@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     const searchBar = document.querySelector("#search-bar");
     const display = document.querySelector("#display");
 
-    searchBar.addEventListener("change", (e) => {
+    searchBar.addEventListener("keyup", (e) => {
       search(e, table, utenti, display);
     });
 
