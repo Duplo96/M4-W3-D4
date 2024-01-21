@@ -62,6 +62,7 @@ const displayUsername = (utenti, table) => {
 };
 const displayAll = (utenti, table) => {
   ShowAll.addEventListener("click", () => {
+    searchBar.placeholder = "Search";
     searchBar.value = "";
     table.classList.add("showAll");
     table.innerHTML = "";
