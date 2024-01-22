@@ -3,79 +3,88 @@ const showEmail = document.querySelector("#email");
 const showUsername = document.querySelector("#username");
 const ShowAll = document.querySelector("#show-all");
 const searchBar = document.querySelector("#search-bar");
-const displayUsers = (utenti, table) => {
-  utenti.forEach(
-    (utente) =>
+const table = document.querySelector("#table-body");
+const resetTable = () => {
+  table.innerHTML = "";
+};
+const setPlaceholderAndValue = (placeholder, value = "") => {
+  searchBar.placeholder = placeholder;
+  searchBar.value = value;
+};
+// Script for defaultPage
+const displayUsers = (users, table) => {
+  users.forEach(
+    (user) =>
       (table.innerHTML += `<tr>
-        <th scope="row">${utente.id}</th>
-        <td>${utente.name}</td>
-        <td>${utente.username}</td>
-        <td>${utente.email}</td>
+        <th scope="row">${user.id}</th>
+        <td>${user.name}</td>
+        <td>${user.username}</td>
+        <td>${user.email}</td>
       </tr>
   `)
   );
 };
-const displayNames = (utenti, table) => {
+// Script for button names
+const displayNames = (users, table) => {
   showName.addEventListener("click", () => {
-    searchBar.placeholder = "Search for Names";
-    searchBar.value = "";
+    setPlaceholderAndValue("Search for Names");
     let counter = 1;
-    table.innerHTML = "";
+    resetTable();
     table.classList.remove("showAll");
     display.innerHTML = `<th scope="col">Name</th>`;
-    utenti.forEach((utente) => {
+    users.forEach((user) => {
       table.innerHTML += ` <th scope="row">${counter}</th>
-      <td>${utente.name}</td>`;
+      <td>${user.name}</td>`;
       counter++;
     });
   });
 };
-const displayEmail = (utenti, table) => {
+// Script for button Email
+const displayEmail = (users, table) => {
   showEmail.addEventListener("click", () => {
-    searchBar.placeholder = "Search for E-mail";
-    searchBar.value = "";
+    setPlaceholderAndValue("Search for Email");
     let counter = 1;
-    table.innerHTML = "";
+    resetTable();
     table.classList.remove("showAll");
     display.innerHTML = `<th scope="col">E-mail</th>`;
-    utenti.forEach((utente) => {
+    users.forEach((user) => {
       table.innerHTML += ` <th scope="row">${counter}</th>
-      <td>${utente.email}</td>`;
+      <td>${user.email}</td>`;
       counter++;
     });
   });
 };
-const displayUsername = (utenti, table) => {
+// Script for button Username
+const displayUsername = (users, table) => {
   showUsername.addEventListener("click", () => {
-    searchBar.placeholder = "Search for Username";
-    searchBar.value = "";
+    setPlaceholderAndValue("Search for Username");
     let counter = 1;
-    table.innerHTML = "";
+    resetTable();
     table.classList.remove("showAll");
     display.innerHTML = `<th scope="col">Username</th>`;
-    utenti.forEach((utente) => {
+    users.forEach((user) => {
       table.innerHTML += ` <th scope="row">${counter}</th>
-      <td>${utente.username}</td>`;
+      <td>${user.username}</td>`;
       counter++;
     });
   });
 };
-const displayAll = (utenti, table) => {
+// Script for button showAll
+const displayAll = (users, table) => {
   ShowAll.addEventListener("click", () => {
-    searchBar.placeholder = "Search";
-    searchBar.value = "";
+    setPlaceholderAndValue("Search");
     table.classList.add("showAll");
-    table.innerHTML = "";
+    resetTable();
     display.innerHTML = `<th scope="col"></th>
       <th scope="col">Name</th>
       <th scope="col">Username</th>
       <th scope="col">E-mail</th>`;
-    utenti.forEach((utente) => {
+    users.forEach((user) => {
       table.innerHTML += `<tr>
-        <th scope="row">${utente.id}</th>
-        <td>${utente.name}</td>
-        <td>${utente.username}</td>
-        <td>${utente.email}</td>
+        <th scope="row">${user.id}</th>
+        <td>${user.name}</td>
+        <td>${user.username}</td>
+        <td>${user.email}</td>
       </tr>
   `;
     });
