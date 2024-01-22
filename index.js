@@ -7,7 +7,6 @@ import {
   displayUsername,
   displayAll,
 } from "./display.js";
-
 document.addEventListener("DOMContentLoaded", async () => {
   try {
     const users = await fetchData();
@@ -17,7 +16,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     searchBar.addEventListener("keyup", (e) => {
       search(e, table, users, display);
     });
-
     displayUsers(users, table);
     displayNames(users, table);
     displayAll(users, table);
